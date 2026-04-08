@@ -125,9 +125,10 @@ nav.scrolled{background:rgba(10,10,8,.92);backdrop-filter:blur(20px);border-bott
 .presence-item h3{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--primary-light);margin:0;letter-spacing:.12em;}
 /* VISIONARIES */
 .vis-sec{padding:7rem 0;background:rgba(10,10,8,0.5);backdrop-filter:blur(10px);border-top:1px solid rgba(154,89,184,.05);overflow:hidden;}
-.vis-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.vis-img{position:relative;overflow:hidden;}
-.vis-img img{width:100%;height:580px;object-fit:cover;clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path 1.2s cubic-bezier(.23,1,.32,1);}
+.vis-grid{display:flex;align-items:center;position:relative;min-height:580px;}
+.vis-img{position:absolute;right:0;width:60%;height:100%;overflow:hidden;z-index:1;}
+.vis-content{position:relative;z-index:2;width:50%;background:rgba(10,10,8,0.85);backdrop-filter:blur(20px);padding:4rem;border:1px solid rgba(154,89,184,.15);box-shadow:0 30px 60px rgba(0,0,0,0.6);border-left:4px solid var(--primary-light);}
+.vis-img img{width:100%;height:100%;object-fit:cover;clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path 1.2s cubic-bezier(.23,1,.32,1);}
 .vis-img.vis{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
 .vis-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(154,89,184,.08));}
 .vis-frame{position:absolute;inset:16px;border:1px solid rgba(154,89,184,.2);pointer-events:none;opacity:0;transition:opacity 1s 1s;}
@@ -191,7 +192,7 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
 .rev{opacity:0;transform:translateY(35px);transition:opacity .85s ease,transform .85s cubic-bezier(.23,1,.32,1);}
 .rev.vis{opacity:1;transform:translateY(0);}
 /* RESPONSIVE */
-@media(max-width:1024px){.gi-grid,.vis-grid{grid-template-columns:1fr;}.vis-img{order:-1;}.ft-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:1024px){.gi-grid{grid-template-columns:1fr;}.vis-grid{flex-direction:column;min-height:auto;}.vis-img{position:relative;width:100%;height:440px;order:-1;}.vis-content{width:100%;padding:2rem;margin-top:-2rem;box-sizing:border-box;}.ft-top{grid-template-columns:1fr 1fr;}}
 @media(max-width:768px){.nav-links{display:none;}.hbg{display:flex;}.hero-ctas{flex-direction:column;}.gi-features{grid-template-columns:1fr;}.ev-cards{grid-template-columns:1fr;}.ft-top{grid-template-columns:1fr;}.ft-btm{flex-direction:column;gap:.5rem;text-align:center;}.badge-ring{width:220px;height:220px;}.badge-core{width:140px;height:140px;}}
 @media(max-width:480px){.nl-form{flex-direction:column;}.nl-form input{border-bottom:1px solid rgba(154,89,184,.2);}}
 </style>
@@ -203,16 +204,16 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
   <div class="nav-wrap">
     <a href="#" class="nav-logo"><img src="assets/logo_white.png" alt="Navera Vogue" onerror="this.style.display='none'"></a>
     <div class="nav-links">
-      <a href="javascript:void(0)">Home</a>
-      <a href="javascript:void(0)">GI Tags</a>
-      <a href="javascript:void(0)">Events</a>
-      <a href="javascript:void(0)">About Us</a>
-      <a href="javascript:void(0)">Collaborate</a>
-      <a href="javascript:void(0)" class="nav-btn">Contact Us</a>
+      <a href="#">Home</a>
+      <a href="#">GI Tags</a>
+      <a href="#">Events</a>
+      <a href="#">About Us</a>
+      <a href="#">Collaborate</a>
+      <a href="#" class="nav-btn">Contact Us</a>
     </div>
     <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <div class="mob-menu" id="mob"><a href="javascript:void(0)">Home</a><a href="javascript:void(0)">GI Tags</a><a href="javascript:void(0)">Events</a><a href="javascript:void(0)">About Us</a><a href="javascript:void(0)">Collaborate</a><a href="javascript:void(0)">Contact Us</a></div>
+  <div class="mob-menu" id="mob"><a href="#">Home</a><a href="#">GI Tags</a><a href="#">Events</a><a href="#">About Us</a><a href="#">Collaborate</a><a href="#">Contact Us</a></div>
 </nav>
 
 <!-- HERO -->
@@ -229,8 +230,8 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
     </h1>
     <p class="hero-sub">From origin to everywhere. This is India,<br>marked by its makers.</p>
     <div class="hero-ctas">
-      <a href="https://naveravogue.com/about-us/" class="btn-g solid"><span>Explore Our Journey</span></a>
-      <a href="#events" class="btn-g outline"><span>Upcoming Events</span></a>
+      <a href="#" class="btn-g solid"><span>Explore Our Journey</span></a>
+      <a href="#" class="btn-g outline"><span>Upcoming Events</span></a>
     </div>
   </div>
   <div class="scroll-ind"><div class="chev"></div><span>Scroll</span></div>
@@ -266,7 +267,7 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
             <p>Celebrates land, people, and craft traditions</p>
           </div>
         </div>
-        <br><a href="https://naveravogue.com/home/" class="btn-g solid rev" style="margin-top:1rem"><span>Learn How GI Works</span></a>
+        <br><a href="#" class="btn-g solid rev" style="margin-top:1rem"><span>Learn How GI Works</span></a>
       </div>
       <div class="gi-badge rev">
         <div class="badge-ring">
@@ -304,23 +305,23 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Diane_von_F%C3%BCrstenberg_Spring-Summer_2014_06.jpg/960px-Diane_von_F%C3%BCrstenberg_Spring-Summer_2014_06.jpg" alt="Art of Graphic" loading="lazy" width="600" height="400">
           <div class="ev-date">July 16, 2025</div>
         </div>
-        <div class="ev-body"><h3>Art of Graphic</h3><p>A curated runway of India's finest GI-tagged textiles brought to the global stage.</p><a href="https://naveravogue.com/events/" class="ev-link">View Event →</a></div>
+        <div class="ev-body"><h3>Art of Graphic</h3><p>A curated runway of India's finest GI-tagged textiles brought to the global stage.</p><a href="#" class="ev-link">View Event →</a></div>
       </article>
       <article class="ev-card rev" style="transition-delay:.15s">
         <div class="ev-img">
           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Burj_Khalifa_2021.jpg/960px-Burj_Khalifa_2021.jpg" alt="Heritage Runway" loading="lazy" width="600" height="400">
           <div class="ev-date">July 16, 2025</div>
         </div>
-        <div class="ev-body"><h3>Heritage Runway Dubai</h3><p>India's craft traditions reimagined for an international audience in Dubai.</p><a href="https://naveravogue.com/events/" class="ev-link">View Event →</a></div>
+        <div class="ev-body"><h3>Heritage Runway Dubai</h3><p>India's craft traditions reimagined for an international audience in Dubai.</p><a href="#" class="ev-link">View Event →</a></div>
       </article>
       <article class="ev-card rev" style="transition-delay:.3s">
         <div class="ev-img" style="background:linear-gradient(135deg,#1a1710,rgba(154,89,184,.08));height:240px;display:flex;align-items:center;justify-content:center;">
           <div class="ev-date" style="position:relative;top:auto;left:auto">Coming Soon</div>
         </div>
-        <div class="ev-body"><h3>London Showcase</h3><p>Bhagalpuri silk meets the streets of London — a cultural fusion on the world's runway.</p><a href="https://naveravogue.com/events/" class="ev-link">Stay Tuned →</a></div>
+        <div class="ev-body"><h3>London Showcase</h3><p>Bhagalpuri silk meets the streets of London — a cultural fusion on the world's runway.</p><a href="#" class="ev-link">Stay Tuned →</a></div>
       </article>
     </div>
-    <a href="https://naveravogue.com/events/" class="btn-g solid rev"><span>See All Events</span></a>
+    <a href="#" class="btn-g solid rev"><span>See All Events</span></a>
   </div>
 </section>
 
@@ -351,15 +352,15 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
   <div class="wrap">
     <div class="vis-grid">
       <div class="vis-img rev">
-        <img src="https://images.unsplash.com/photo-1537824598505-99ee03483384?auto=format&fit=crop&w=700&q=80" alt="Navera Vogue Founders" loading="lazy" width="700" height="580">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Anita_Dongre_in_2016.jpg/800px-Anita_Dongre_in_2016.jpg" alt="Navera Vogue Founders" loading="lazy" width="800" height="600">
         <div class="vis-frame"></div>
       </div>
-      <div>
-        <div class="lbl rev">The Visionaries</div>
-        <h2 class="sec-h2 rev">Heritage, Reimagined<br><em>by Visionaries</em></h2>
-        <p class="sec-p rev">With over <strong style="color:var(--primary-light);font-weight:500">30 years in fashion and runway</strong>, our founders are bridging Indian crafts and global fashion capitals. Their work spans show direction, brand collaborations, and large-scale showcases.</p>
-        <p class="sec-p rev" style="margin-top:-1.5rem">At Navera, they bring a clear vision to take Indian heritage beyond its origins and place it on a global stage with purpose.</p>
-        <a href="https://naveravogue.com/about-us/" class="btn-g outline rev"><span>Meet Our Founders</span></a>
+      <div class="vis-content rev">
+        <div class="lbl">The Visionaries</div>
+        <h2 class="sec-h2">Heritage, Reimagined<br><em>by Visionaries</em></h2>
+        <p class="sec-p">With over <strong style="color:var(--primary-light);font-weight:500">30 years in fashion and runway</strong>, our founders are bridging Indian crafts and global fashion capitals. Their work spans show direction, brand collaborations, and large-scale showcases.</p>
+        <p class="sec-p" style="margin-top:-1.5rem">At Navera, they bring a clear vision to take Indian heritage beyond its origins and place it on a global stage with purpose.</p>
+        <a href="#" class="btn-g outline" style="margin-top:1rem;"><span>Meet Our Founders</span></a>
       </div>
     </div>
   </div>
@@ -378,7 +379,7 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
     <div class="des-card"><div class="des-img"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Designer 3" loading="lazy" width="260" height="340"></div><div class="des-overlay"><h4>Heritage Master</h4><p>GI Craft Expert</p></div></div>
     <div class="des-card"><div class="des-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Diane_von_F%C3%BCrstenberg_Spring-Summer_2014_06.jpg/960px-Diane_von_F%C3%BCrstenberg_Spring-Summer_2014_06.jpg" alt="Designer 4" loading="lazy" width="260" height="340"></div><div class="des-overlay"><h4>Global Storyteller</h4><p>Runway Creator</p></div></div>
   </div>
-  <div style="text-align:center;margin-top:2rem"><a href="https://naveravogue.com/collaborate/" class="btn-g solid rev"><span>Apply to Collaborate</span></a></div>
+  <div style="text-align:center;margin-top:2rem"><a href="#" class="btn-g solid rev"><span>Apply to Collaborate</span></a></div>
 </section>
 
 <!-- JOIN COLLECTIVE -->
@@ -389,7 +390,7 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
     <div class="lbl rev" style="justify-content:center">Join Us</div>
     <h2 class="sec-h2 rev" style="text-align:center">Join the <em>Navera Collective</em></h2>
     <p class="sec-p rev" style="text-align:center;margin:0 auto 2.5rem">For influencers and artisans — be part of the movement taking India's heritage global.</p>
-    <a href="https://naveravogue.com/collaborate/" class="btn-liq rev"><span>Apply Now</span></a>
+    <a href="#" class="btn-liq rev"><span>Apply Now</span></a>
   </div>
 </section>
 
@@ -435,9 +436,9 @@ footer{background:rgba(10,10,8,0.7);backdrop-filter:blur(20px);border-top:1px so
         <a href="#" class="si" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
-    <div class="ft-col"><h4>Features</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Blog</a></li><li><a href="https://naveravogue.com/about-us/">About Us</a></li><li><a href="#">Services</a></li></ul></div>
-    <div class="ft-col"><h4>Navigation</h4><ul><li><a href="#home">Home</a></li><li><a href="https://naveravogue.com/about-us/">About Us</a></li><li><a href="https://naveravogue.com/collaborate/">Collaborate</a></li><li><a href="https://naveravogue.com/events/">Events</a></li></ul></div>
-    <div class="ft-col"><h4>Useful Links</h4><ul><li><a href="https://naveravogue.com/contact-us">Contact</a></li><li><a href="#">Artisan Stories</a></li><li><a href="#">Press Kit</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    <div class="ft-col"><h4>Features</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Blog</a></li><li><a href="#">About Us</a></li><li><a href="#">Services</a></li></ul></div>
+    <div class="ft-col"><h4>Navigation</h4><ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Collaborate</a></li><li><a href="#">Events</a></li></ul></div>
+    <div class="ft-col"><h4>Useful Links</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Artisan Stories</a></li><li><a href="#">Press Kit</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
   </div>
   <div class="ft-btm"><span>Copyright 2026 © Navera Vogue. All rights reserved.</span><span>India's Heritage. Global Stage.</span></div>
 </footer>
@@ -594,6 +595,11 @@ var statObs=new IntersectionObserver(function(entries){
   });
 },{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(function(el){statObs.observe(el);});
+
+// DISABLE DUMMY LINKS
+document.querySelectorAll('a[href="#"], a[href="javascript:void(0)"]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); });
+});
 })();
 </script>
 </body>
